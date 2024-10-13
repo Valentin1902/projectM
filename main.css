@@ -61,12 +61,12 @@ li {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 20px;
   width: 250px;
+  height: 256px;
   text-align: center;
 }
 .card-fullName {
   font-size: 1.2rem;
   color: #333;
-  margin-bottom: 15px;
 }
 .card-socials {
   display: flex;
@@ -81,7 +81,6 @@ li {
   background: linear-gradient(to bottom, white 50%, white 50%);
   border: 2px solid white;
   margin-left: 160px;
-  margin-top: 20px;
   padding: 20px;
   text-align: center;
   width: 900px;

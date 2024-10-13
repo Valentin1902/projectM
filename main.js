@@ -1,4 +1,5 @@
 import { actors } from "./home.js";
+
 function createCard(actor) {
   const liCardWrapper = document.createElement("li");
   liCardWrapper.classList.add("card-wrapper");
@@ -11,9 +12,54 @@ function createCard(actor) {
   imgCardPhoto.setAttribute("src", actor.profilePicture);
   imgCardPhoto.setAttribute("alt", `${actor.firstName} ${actor.lastName}`);
 
+  imgCardPhoto.style.width = "100px";
+  imgCardPhoto.style.height = "100px";
+  imgCardPhoto.style.borderRadius = "50%";
+
+  const stringToColour = (str) => {
+    let hash = 0;
+    str.split("").forEach((char) => {
+      hash = char.charCodeAt(0) + ((hash << 5) - hash);
+    });
+    let colour = "#";
+    for (let i = 0; i < 3; i++) {
+      const value = (hash >> (i * 8)) & 0xff;
+      colour += value.toString(16).padStart(2, "0");
+    }
+    return colour;
+  };
+
+  const initialsContainer = document.createElement("div");
+  initialsContainer.classList.add("card-initials");
+  initialsContainer.textContent = `${actor.firstName[0]}${actor.lastName[0]}`;
+  initialsContainer.style.display = "none";
+
+  const bgColor = stringToColour(`${actor.firstName} ${actor.lastName}`);
+  initialsContainer.style.backgroundColor = bgColor;
+  initialsContainer.style.color = "#fff";
+  initialsContainer.style.width = "100px";
+  initialsContainer.style.height = "100px";
+  initialsContainer.style.display = "flex";
+  initialsContainer.style.justifyContent = "center";
+  initialsContainer.style.alignItems = "center";
+  initialsContainer.style.fontSize = "2em";
+  initialsContainer.style.borderRadius = "50%";
+
   const h2CardFullName = document.createElement("h2");
   h2CardFullName.classList.add("card-fullName");
   h2CardFullName.textContent = `${actor.firstName} ${actor.lastName}`;
+
+  imgCardPhoto.onload = () => {
+    imgCardPhoto.style.display = "block";
+    initialsContainer.style.display = "none";
+  };
+
+  imgCardPhoto.onerror = () => {
+    imgCardPhoto.style.display = "none";
+    initialsContainer.style.display = "flex";
+
+    h2CardFullName.style.marginTop = "13px";
+  };
 
   const socialIcons = document.createElement("div");
   socialIcons.classList.add("social-icons");
@@ -26,6 +72,7 @@ function createCard(actor) {
     facebookIcon.alt = "Facebook";
     facebookIcon.style.width = "25px";
     facebookIcon.style.height = "25px";
+    facebookIcon.style.marginTop = "40px";
     facebookIcon.onclick = () => {
       window.open(actor.contacts[0], "_blank");
     };
@@ -38,6 +85,7 @@ function createCard(actor) {
   twitterIcon.alt = "Twitter";
   twitterIcon.style.width = "25px";
   twitterIcon.style.height = "25px";
+  twitterIcon.style.marginTop = "40px";
   twitterIcon.onclick = () => {
     window.open(actor.contacts[1], "_blank");
   };
@@ -51,13 +99,19 @@ function createCard(actor) {
     instagramIcon.alt = "Instagram";
     instagramIcon.style.width = "25px";
     instagramIcon.style.height = "25px";
+    instagramIcon.style.marginTop = "40px";
     instagramIcon.onclick = () => {
       window.open(actor.contacts[2], "_blank");
     };
     socialIcons.appendChild(instagramIcon);
   }
 
-  articleCardContainer.append(imgCardPhoto, h2CardFullName, socialIcons);
+  articleCardContainer.append(
+    imgCardPhoto,
+    initialsContainer,
+    h2CardFullName,
+    socialIcons
+  );
   liCardWrapper.append(articleCardContainer);
 
   liCardWrapper.addEventListener("click", () => {

@@ -3,7 +3,12 @@ export const actors = [
     id: 1,
     firstName: "Jason",
     lastName: "Statham",
+<<<<<<< HEAD
     profilePicture: "",
+=======
+    profilePicture:
+      "https:",
+>>>>>>> f624106d68744153d9db0b40e2d17540cbb37ad8
     contacts: [
       "https://www.facebook.com/JasonStatham/",
       "https://twitter.com/realjstatham",

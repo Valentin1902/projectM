@@ -4,7 +4,7 @@ export const actors = [
     firstName: "Jason",
     lastName: "Statham",
     profilePicture:
-      "https://image.tmdb.org/t/p/original/lldeQ91GwIVff43JBrpdbAAeYWj.jp",
+      "https://image.tmdb.org/t/p/original/lldeQ91GwIVff43JBrpdbAAeYWj.",
     contacts: [
       "https://www.facebook.com/JasonStatham/",
       "https://twitter.com/realjstatham",

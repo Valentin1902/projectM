@@ -15,19 +15,19 @@ function createCard(actor) {
   imgCardPhoto.style.width = "100px";
   imgCardPhoto.style.height = "100px";
   imgCardPhoto.style.borderRadius = "50%";
+}
 
-  const stringToColour = (str) => {
-    let hash = 0;
-    str.split("").forEach((char) => {
-      hash = char.charCodeAt(0) + ((hash << 5) - hash);
-    });
-    let colour = "#";
-    for (let i = 0; i < 3; i++) {
-      const value = (hash >> (i * 8)) & 0xff;
-      colour += value.toString(16).padStart(2, "0");
-    }
-    return colour;
-  };
+const stringToColour = (str) => {
+  let hash = 0;
+  str.split("").forEach((char) => {
+    hash = char.charCodeAt(0) + ((hash << 5) - hash);
+  });
+  let colour = "#";
+  for (let i = 0; i < 3; i++) {
+    const value = (hash >> (i * 8)) & 0xff;
+    colour += value.toString(16).padStart(2, "0");
+  }
+  return colour;
 
   const initialsContainer = document.createElement("div");
   initialsContainer.classList.add("card-initials");
@@ -119,7 +119,7 @@ function createCard(actor) {
   });
 
   return liCardWrapper;
-}
+};
 
 function addToChosenList(actorFullName) {
   const chosenList = document.getElementById("chosen-list");

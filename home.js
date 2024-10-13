@@ -3,7 +3,8 @@ export const actors = [
     id: 1,
     firstName: "Jason",
     lastName: "Statham",
-    profilePicture: "unknow",
+    profilePicture:
+      "https://image.tmdb.org/t/p/original/lldeQ91GwIVff43JBrpdbAAeYWj.",
     contacts: [
       "https://www.facebook.com/JasonStatham/",
       "https://twitter.com/realjstatham",

@@ -105,7 +105,6 @@ function createCard(actor) {
     socialIcons.appendChild(instagramIcon);
   }
 
-  // Додаємо картинку або ініціали з ім'ям та іконками
   articleCardContainer.append(
     imgCardPhoto,
     initialsContainer,
@@ -129,7 +128,31 @@ function addToChosenList(actorFullName) {
 
   chosenList.appendChild(li);
 }
+// Form
+document.getElementById("actor-form").addEventListener("submit", (event) => {
+  event.preventDefault();
 
+  const fullName = document.getElementById("fullName").value;
+  const profilePicture = document.getElementById("profilePicture").value;
+  const facebook = document.getElementById("facebook").value;
+  const twitter = document.getElementById("twitter").value;
+  const instagram = document.getElementById("instagram").value;
+
+  const [firstName, lastName] = fullName.split(" ");
+
+  const newActor = {
+    firstName: firstName,
+    lastName: lastName,
+    profilePicture: profilePicture,
+    contacts: [facebook, twitter, instagram],
+  };
+
+  const ulCardsList = document.getElementById("cards-list");
+  ulCardsList.appendChild(createCard(newActor));
+
+  document.getElementById("actor-form").reset();
+});
+//and Form
 const HTMLCards = actors.map((actor) => createCard(actor));
 const ulCardsList = document.getElementById("cards-list");
 ulCardsList.append(...HTMLCards);

@@ -108,3 +108,26 @@ li {
   width: 24px;
   height: 24px;
 }
+.h2AddActor {
+  color: #ff6b6b;
+  margin-top: 20px;
+  margin-right: 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 5px;
+  width: 200px;
+  margin-left: 840px;
+  border-radius: 30px;
+}
+.FormActor {
+  margin-top: 20px;
+}
+.BtnAddActor {
+  border-radius: 10px;
+  padding: 10px;
+  border-color: white;
+  background-color: white;
+  color: #20b640;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-left: 20px;
+}

@@ -22,7 +22,24 @@
         <ul id="chosen-list" class="chosen-list"></ul>
       </section>
     </section>
-
+    <!-- Form add Actor-->
+    <h2 class="h2AddActor">Add Actor</h2>
+    <form id="actor-form" class="FormActor">
+      <input type="text" id="fullName" placeholder="Full Name" required />
+      <input
+        type="text"
+        id="profilePicture"
+        placeholder="Profile Picture URL"
+        required
+      />
+      <input type="url" id="facebook" placeholder="Facebook URL" />
+      <input type="url" id="twitter" placeholder="Twitter URL" />
+      <input type="url" id="instagram" placeholder="Instagram URL" />
+      <button type="submit" class="BtnAddActor"><b>Add Actor</b></button>
+    </form>
+    <!-- and Form-->
+    <ul id="cards-list"></ul>
+    <ul id="chosen-list"></ul>
     <script src="./home.js" type="module"></script>
     <script src="./main.js" type="module"></script>
   </body>
